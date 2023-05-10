@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import Layout from "./../../components/Layout/Layout";
 import axios from "axios";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import "../../styles/AuthStyles.css";
-import { useAuth } from "../../context/auth";
 
-const ForgotPassword = () => {
+const ForgotPasssword = () => {
   const [email, setEmail] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [answer, setAnswer] = useState("");
@@ -24,6 +23,7 @@ const ForgotPassword = () => {
       });
       if (res && res.data.success) {
         toast.success(res.data && res.data.message);
+
         navigate("/login");
       } else {
         toast.error(res.data.message);
@@ -34,10 +34,11 @@ const ForgotPassword = () => {
     }
   };
   return (
-    <Layout title={"Forgot Passwrod - eCommerce App"}>
-      <div className="form-container" style={{ minHeight: "90vh" }}>
+    <Layout title={"Forgot Password - Ecommerce APP"}>
+      <div className="form-container ">
         <form onSubmit={handleSubmit}>
           <h4 className="title">RESET PASSWORD</h4>
+
           <div className="mb-3">
             <input
               type="email"
@@ -56,7 +57,7 @@ const ForgotPassword = () => {
               onChange={(e) => setAnswer(e.target.value)}
               className="form-control"
               id="exampleInputEmail1"
-              placeholder="Enter Your Secret Answer "
+              placeholder="Enter Your favorite Sport Name "
               required
             />
           </div>
@@ -67,10 +68,11 @@ const ForgotPassword = () => {
               onChange={(e) => setNewPassword(e.target.value)}
               className="form-control"
               id="exampleInputPassword1"
-              placeholder="Enter Your New Password"
+              placeholder="Enter Your Password"
               required
             />
           </div>
+
           <button type="submit" className="btn btn-primary">
             RESET
           </button>
@@ -80,4 +82,4 @@ const ForgotPassword = () => {
   );
 };
 
-export default ForgotPassword;
+export default ForgotPasssword;

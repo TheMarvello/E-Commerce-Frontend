@@ -10,7 +10,6 @@ const { Option } = Select;
 const CreateProduct = () => {
   const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
-  const [products, setProducts] = useState([]);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
@@ -18,22 +17,6 @@ const CreateProduct = () => {
   const [quantity, setQuantity] = useState("");
   const [shipping, setShipping] = useState("");
   const [photo, setPhoto] = useState("");
-
-  // // GET ALL PRODUCTS
-  // const getAllProducts = async () => {
-  //   try {
-  //     const { data } = await axios.get("/api/v1/product/get-product");
-  //     setProducts(data.products);
-  //   } catch (error) {
-  //     console.log(error);
-  //     toast.error("Something went wrong!");
-  //   }
-  // };
-
-  // // lifecycle method
-  // useEffect(() => {
-  //   getAllProducts();
-  // }, []);
 
   //get all category
   const getAllCategory = async () => {
@@ -44,7 +27,7 @@ const CreateProduct = () => {
       }
     } catch (error) {
       console.log(error);
-      toast.error("Something went wrong in getting catgeory");
+      toast.error("Something wwent wrong in getting catgeory");
     }
   };
 
@@ -71,7 +54,6 @@ const CreateProduct = () => {
         toast.error(data?.message);
       } else {
         toast.success("Product Created Successfully");
-        // getAllProducts();
         navigate("/dashboard/admin/products");
       }
     } catch (error) {
@@ -82,7 +64,7 @@ const CreateProduct = () => {
 
   return (
     <Layout title={"Dashboard - Create Product"}>
-      <div className="container-fluid m-3 p-3">
+      <div className="container-fluid m-3 p-3 dashboard">
         <div className="row">
           <div className="col-md-3">
             <AdminMenu />

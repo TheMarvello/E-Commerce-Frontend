@@ -1,14 +1,13 @@
 import React from "react";
-import Layout from "../components/Layout/Layout";
+import Layout from "./../components/Layout/Layout";
 import { useSearch } from "../context/search";
-
 const Search = () => {
   const [values, setValues] = useSearch();
   return (
-    <Layout>
+    <Layout title={"Search results"}>
       <div className="container">
         <div className="text-center">
-          <h1>Search Results</h1>
+          <h1>Search Resuts</h1>
           <h6>
             {values?.results.length < 1
               ? "No Products Found"
@@ -16,20 +15,10 @@ const Search = () => {
           </h6>
           <div className="d-flex flex-wrap mt-4">
             {values?.results.map((p) => (
-              <div
-                className="card m-2 justify-content-center"
-                style={{ width: "18rem" }}
-              >
+              <div className="card m-2" style={{ width: "18rem" }}>
                 <img
                   src={`/api/v1/product/product-photo/${p._id}`}
                   className="card-img-top"
-                  style={
-                    ({ objectFit: "cover" },
-                    { width: "100%" },
-                    {
-                      height: "40vh",
-                    })
-                  }
                   alt={p.name}
                 />
                 <div className="card-body">

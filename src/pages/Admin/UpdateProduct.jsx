@@ -23,7 +23,6 @@ const UpdateProduct = () => {
   //get single product
   const getSingleProduct = async () => {
     try {
-      console.log(params);
       const { data } = await axios.get(
         `/api/v1/product/get-product/${params.slug}`
       );
@@ -41,9 +40,8 @@ const UpdateProduct = () => {
   };
   useEffect(() => {
     getSingleProduct();
-    // eslint-disable-next-line
+    //eslint-disable-next-line
   }, []);
-
   //get all category
   const getAllCategory = async () => {
     try {
@@ -91,12 +89,12 @@ const UpdateProduct = () => {
   //delete a product
   const handleDelete = async () => {
     try {
-      let answer = window.prompt("Are You Sure want to delete this product ?");
+      let answer = window.prompt("Are You Sure want to delete this product ? ");
       if (!answer) return;
       const { data } = await axios.delete(
         `/api/v1/product/delete-product/${id}`
       );
-      toast.success("Product Deleted Succfully");
+      toast.success("Product DEleted Succfully");
       navigate("/dashboard/admin/products");
     } catch (error) {
       console.log(error);

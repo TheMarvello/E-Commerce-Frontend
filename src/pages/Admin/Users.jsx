@@ -1,10 +1,10 @@
 import React from "react";
-import Layout from "../../components/Layout/Layout";
 import AdminMenu from "../../components/Layout/AdminMenu";
+import Layout from "./../../components/Layout/Layout";
 
 const Users = () => {
   return (
-    <Layout title={"All Users - Ecommerce"}>
+    <Layout title={"Dashboard - All Users"}>
       <div className="container-fluid m-3 p-3">
         <div className="row">
           <div className="col-md-3">
